@@ -49,6 +49,11 @@ client.on('message', async message => {
     }
 });
 
+client.on("guildMemberAdd", member => {
+    console.log("Un nouveau membre est arrivé");
+    member.guild.channels.cache.find(channel => channel.id === "882034152621371472").send("<@"+member.id+ ">"+ " est arrivé !\nNous sommes désormais **" + member.guild.memberCount + "** membres sur le serveur");
+
+});
 
 
 client.login(process.env.TOKEN);
